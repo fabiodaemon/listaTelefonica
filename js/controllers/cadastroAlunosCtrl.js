@@ -8,7 +8,8 @@
                     contatosAPI.getContatos().then(function (response) {
                         $scope.contatos = response.data;
                     }).catch(function(data, status){
-                        $scope.message = "Não foi possível carregar os dados!" + data;
+                        $scope.error = "Não foi possível carregar os dados!";
+                        // $scope.error = "Não foi possível carregar os dados!" + data;
                     });
                 };
 
