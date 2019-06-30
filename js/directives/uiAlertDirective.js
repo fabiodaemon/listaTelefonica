@@ -5,7 +5,9 @@ angular.module("cadastroAlunos").directive("uiAlert", function(){
         replace: true,
         restrict: "AE",
         scope:{
-            topic: "@", // topic: "@title" se nao fossem iguais seria necessario escrever o nome apos o @
+            title: "@",
+            msg: "="
+             // topic: "@title" se nao fossem iguais seria necessario escrever o nome apos o @
             // message: "=" // O '=' cria o two-way-data-binding. Vinculo bidirecional: propr. scope do template c/ propr. scope diretiva
         },
         transclude: true

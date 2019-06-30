@@ -19,18 +19,19 @@
         <script src="js/filters/nameFilter.js"></script>
         <script src="js/filters/ellipsisFilter.js"></script>
         <script src="js/directives/uiAlertDirective.js"></script>
+        <script src="js/directives/uiDateDirective.js"></script>
     </head>
     <body ng-controller="cadastroAlunosCtrl">
 
         <div class="jumbotron">
             <h3>{{app}}</h3>
 
-            <ui-alert title="Ops, Aconteceu um problema!">
-                {{error}}
+            <!-- <ui-alert title="Ops, Aconteceu um problema!">
+                {{msg}}
             </ui-alert>
             <ui-alert title="Série sobre AngularJS">
                 Exemplo
-            </ui-alert>
+            </ui-alert> -->
 
             <input type="text" class="form-control" ng-model="criterioDeBusca" placeholder="Pesquisar...">
             <table ng-show="contatos.length > 0" class="table">
@@ -56,16 +57,18 @@
             <form name="contatoForm">
             <input type="text" class="form-control" ng-model="contato.nome" name="nome" placeholder="nome" ng-required="true" ng-minlength="10"/>
             <input type="text" class="form-control" ng-model="contato.telefone" name="telefone" placeholder="telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" />
+            {{contato.data}}
+            <input type="text" class="form-control" ng-model="contato.data" name="data" placeholder="Data" ui-date/>
             <select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' )' group by operadora.categoria for operadora in operadoras | orderBy:'nome'">
                 <option value="">Selecione uma operadora</option>
             </select>
             </form>
-
-            <div ng-messages="contatoForm.nome.$error"  class="alert alert-danger">
-                <div ng-message="required">
+            <div ng-show="contatoForm.nome.$dirty" ng-messages="contatoForm.nome.$error"> 
+            <div ng-message="contatoForm.nome.$error"  class="alert alert-danger">
+                <div ng-message="required" class="alert alert-danger">
                     Por favor, preencha o campo "nome"!
                 </div>
-                <div ng-message="minlength">
+                <div ng-message="minlength" class="alert alert-danger">
                     O campo "nome" deve ter no mínimo 10 caracteres! 
                 </div>
             </div>

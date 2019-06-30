@@ -2,13 +2,16 @@
                 $scope.app= "Cadastro de Telefones de Alunos";
                 $scope.contatos = [];
                 $scope.operadoras = [];
+                $scope.contato = {
+                    data: 1034218800000
+                };
 
                 var carregarContatos = function(){
 
                     contatosAPI.getContatos().then(function (response) {
                         $scope.contatos = response.data;
                     }).catch(function(data, status){
-                        $scope.error = "Não foi possível carregar os dados!";
+                        $scope.error = "nao foi possivel carregar os dados";
                         // $scope.error = "Não foi possível carregar os dados!" + data;
                     });
                 };
