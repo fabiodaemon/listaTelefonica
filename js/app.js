@@ -1,1 +1,1 @@
-angular.module("cadastroAlunos", ["ngMessages"],);
+angular.module("cadastroAlunos", ["ngMessages", "serialGenerator", "ui"],);
