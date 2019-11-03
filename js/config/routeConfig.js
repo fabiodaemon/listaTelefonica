@@ -14,6 +14,7 @@ angular.module("cadastroAlunos").config(function ($routeProvider, $locationProvi
 			}
 		}
 	});
+
 	$routeProvider.when("/novoContato", {
 		templateUrl: "view/novoContato.html",
 		controller: "novoContatoCtrl",
@@ -23,31 +24,17 @@ angular.module("cadastroAlunos").config(function ($routeProvider, $locationProvi
 			}
 		}
 	});
-	// $routeProvider.when("/detalhesContato/:id", {
-	// 	templateUrl: "view/detalhesContato.html",
-	// 	controller: "detalhesContatoCtrl",
-	// 	resolve: {
-	// 		contato: function (contatosAPI, $route) {
-	// 			return contatosAPI.getContato($route.current.params.id);
-	// 		}
-	// 	}
-	// $routeProvider.when("/novoContato", {
-	// 	templateUrl: "view/novoContato.html",
-	// 	controller: "novoContatoCtrl",
-	// 	resolve: {
-	// 		operadoras: function (operadorasAPI) {
-	// 			return operadorasAPI.getOperadoras();
-	// 		}
-	// 	}
-	// });
-	// $routeProvider.when("/detalhesContato/:id", {
-	// 	templateUrl: "view/detalhesContato.html",
-	// 	controller: "detalhesContatoCtrl",
-	// 	resolve: {
-	// 		contato: function (contatosAPI, $route) {
-	// 			return contatosAPI.getContato($route.current.params.id);
-	// 		}
-	// 	}
-	// });
+	
+	$routeProvider.when("/detalhesContato/:id", {
+		templateUrl: "view/detalhesContato.html",
+		controller: "detalhesContatoCtrl",
+		resolve: {
+			contato: function (contatosAPI, $route) {
+				return contatosAPI.getContato($route.current.params.id);
+			}
+		}
+	});
+	
+
 	$routeProvider.otherwise({redirectTo: "/contatos"});
 });
