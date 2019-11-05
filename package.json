@@ -1,0 +1,29 @@
+{
+  "name": "listaTelefonica",
+  "version": "1.0.0",
+  "description": "Curso AngularJS - Cadastro de Telefones Fictício",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiodaemon/listaTelefonica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabiodaemon/listaTelefonica/issues"
+  },
+  "homepage": "https://github.com/fabiodaemon/listaTelefonica#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
